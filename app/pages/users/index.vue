@@ -1,0 +1,45 @@
+<template>
+  <div class="min-h-full">
+    <header class="bg-white shadow">
+      <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold text-gray-900">All Users</h1>
+      </div>
+    </header>
+    <main>
+      <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <div class="flex flex-row">
+          <div>
+            <NuxtLink :to="`/`" class="m-2 opacity-50 hover:opacity-100 cursor-pointer inline-block">Home </NuxtLink>
+            <p class="font-bold inline-block">/</p>
+            <p class="m-2 font-bold inline-block">Users</p>
+          </div>
+        </div>
+        <div class="px-4 py-6 sm:px-0">
+          <div class="border-4 border-dashed border-gray-200 rounded-lg h-100 p-4">
+
+            <Card v-for="user in users"
+                  :key="user.id"
+                  :item="user"
+                  :isUser="true"
+            />
+
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</template>
+
+<script lang="ts">
+import Vue from 'vue'
+import Card from '@/components/Card.vue'
+
+export default Vue.extend({
+  middleware: ['auth', 'admin-auth'],
+  computed: {
+    users() {
+      return this.$store.getters['getUsers']
+    }
+  }
+})
+</script>
