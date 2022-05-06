@@ -25,3 +25,9 @@ In the project folder, locate default.vue file (.nuxt/layouts/default.vue). Chan
 </template>
 ```
 This will add the navigation bar to the template.
+
+
+
+## Application
+
+![image](https://user-images.githubusercontent.com/22478604/166938593-f77d511a-6d4e-4129-8caa-796239756381.png)
