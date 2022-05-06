@@ -60,6 +60,20 @@ export const actions = {
                 console.error('Unable to delete machine!', error)
             });
     },
+
+    async updateUser ({ commit }, user) {
+        const { id } = { ...user }
+
+        await this.$axios.put('api/users/' + id, { ...user })
+            .then(response => {
+                const { data } = { ...response.data } 
+                commit('updateUser', data)                
+            })
+            .catch(error => {
+                console.error('Unable to update user!', error);
+            });
+    },
+
 }
 
 export const mutations = {
@@ -90,6 +104,13 @@ export const mutations = {
     setUsers(storeState, users) {
         storeState.users = users
     },
+
+    updateUser(storeState, user) {
+        const { id, role_id } = { ...user }
+        const userForUpdate = storeState.users.find(user => user.id == id)
+
+        userForUpdate.role_id = role_id
+    },
 }
 
 export const getters = {
@@ -103,5 +124,9 @@ export const getters = {
 
     getUsers: (storeState) => {
         return storeState.users
+    },
+
+    getUserById: (storeState) => (id) => {
+        return storeState.users.find(user => user.id == id)
     },
 }

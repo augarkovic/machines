@@ -6,7 +6,7 @@
       </div>
     </header>
     <main>
-      <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
         <div class="flex flex-row">
           <div>
             <NuxtLink :to="`/`" class="m-2 opacity-50 hover:opacity-100 cursor-pointer inline-block">Home </NuxtLink>
@@ -14,7 +14,7 @@
             <p class="m-2 font-bold inline-block">Users</p>
           </div>
         </div>
-        <div class="px-4 py-6 sm:px-0">
+        <div class="py-6 sm:px-0">
           <div class="border-4 border-dashed border-gray-200 rounded-lg h-100 p-4">
 
             <Card v-for="user in users"

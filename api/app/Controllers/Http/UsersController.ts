@@ -19,7 +19,27 @@ export default class UsersController {
 
   public async edit({}: HttpContextContract) {}
 
-  public async update({}: HttpContextContract) {}
+  public async update({params: { id }, request, response, auth}) {
+    const user = await User.find(id)
+
+    if(user) {
+      const { role_id } = request.body()
+
+      user.role_id = role_id
+
+      await user.save()
+
+      response.status(200).json({
+        message: 'User successfully updated',
+        data: user
+      })
+    } else {
+      response.status(404).json({
+        message: 'User not found',
+        data: {}
+      })
+    }
+  }
 
   public async destroy({}: HttpContextContract) {}
 }

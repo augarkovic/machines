@@ -8,7 +8,7 @@
         <p class="font-bold inline-block">/</p>
         <p class="m-2 font-bold inline-block">Machine page</p>
         <div v-if="machine" class="px-4 py-6 sm:px-0">
-          <div class="border-4 border-dashed border-gray-200 rounded-lg h-100 p-4 flex flex-row">
+          <div class="border-4 border-dashed border-gray-200 rounded-lg h-100 p-4 flex flex-col md:flex-row">
               <div style="flex-basis: 50%" class="p-4">
                   <img class="object-cover shadow rounded shadow-xl border" :src="machine.image" alt="Machine">
               </div>
@@ -44,7 +44,7 @@
 
         <div v-else class="px-4 py-6 sm:px-0">
           <form @submit="create">
-            <div class="border-4 border-dashed border-gray-200 rounded-lg h-100 p-4 flex flex-row">
+            <div class="border-4 border-dashed border-gray-200 rounded-lg h-100 p-4 flex flex-col md:flex-row">
               <div style="flex-basis: 50%" class="p-4">
                 <img class="object-cover shadow rounded shadow-xl border mb-6" :src="machineDetails.image" :alt="`${machineDetails.image}`">
                 <label for="source" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Image source</label>

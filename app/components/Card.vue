@@ -14,17 +14,19 @@
 
                 <p class="block mt-1 text-lg leading-tight text-black" v-if="isUser">Email: {{ item.email }}</p>
 
+                <p class="block mt-1 text-lg leading-tight text-black" v-if="isUser">Status: {{ item.status }}</p>
+
                 <p class="capitalize font-semibold mt-auto" v-if="isUser">Role: {{ getUserRole(item.role_id) }}</p>
                 <p class="capitalize font-semibold mt-auto" v-else>State: {{ item.state }}</p>
             </div>
-            <div class="ml-auto mt-4">
+            <div class="ml-auto mt-4 flex justify-end">
                 <NuxtLink v-if="isUser" :to="`/users/${item.id}`" class="m-2 opacity-50 hover:opacity-100 cursor-pointer">
                     <font-awesome-icon :icon="['fas', 'pencil']" size="lg" />
                 </NuxtLink>
                 <NuxtLink v-else :to="`/machines/${item.id}`" @click="updateMachine(item.id)" class="m-2 opacity-50 hover:opacity-100 cursor-pointer">
                     <font-awesome-icon :icon="['fas', 'pencil']" size="lg" />
                 </NuxtLink>
-                <a @click="deleteMachine(item.id)" class="m-2 opacity-50 hover:opacity-100 cursor-pointer"><font-awesome-icon :icon="['fas', 'trash']" size="lg" /></a>
+                <a v-if="!isUser" @click="deleteMachine(item.id)" class="m-2 opacity-50 hover:opacity-100 cursor-pointer"><font-awesome-icon :icon="['fas', 'trash']" size="lg" /></a>
             </div>
         </div>
     </div>
