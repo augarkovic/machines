@@ -15,18 +15,6 @@ Run 'npm install' to install project dependencies.
 
 Run 'npm run dev'. Nuxt app should now be running on localhost:3000. Open the application in your browser.
 
-In the project folder, locate default.vue file (.nuxt/layouts/default.vue). Change the content of the file to:
-```bash
-<template>
-  <div>
-    <Nav/>
-    <Nuxt />
-  </div>
-</template>
-```
-This will add the navigation bar to the template.
-
-
 
 ## Application
 
